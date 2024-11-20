@@ -179,3 +179,40 @@ class LinkedList:
 - Insert
 - Delete
 - Traversal
+
+```
+dll = DoubleLinkedList()
+    [dll.add_begin(d * 2) for d in range(0, 10)]
+    dll.print_forward()
+    dll.print_backward()
+    dll.add_end(-1)
+    dll.print_forward()
+    dll.print_backward()
+    print(f"count node in list: %s" % dll.count())
+```
+ 
+# Non-Linear data structure
+- Tree
+- Graph
+
+# Binary Search Tree
+```
+bst = BinarySearchTree()
+    bst.insert(50)
+    bst.insert(30)
+    bst.insert(70)
+    bst.insert(20)
+    bst.insert(40)
+    bst.insert(60)
+    bst.insert(80)
+
+    print("In-order Traversal:", bst.inorder_traversal())  # Sorted order
+    print("Pre-order Traversal:", bst.preorder_traversal())
+    print("Post-order Traversal:", bst.postorder_traversal())
+
+    print("Search 40:", bst.search(40))  # True
+    print("Search 90:", bst.search(90))  # False
+
+    bst.delete(50)
+    print("In-order Traversal after deleting 50:", bst.inorder_traversal())
+    ```
