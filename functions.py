@@ -51,3 +51,30 @@ def maxSumFirstKElement(arr, K) -> int:
         res = max(res, curr_sum)
      
     return res
+
+
+def rolling_hash_search(text, pattern):
+    base = 256
+    mod = 101
+    
+    n, m = len(text), len(pattern)
+    if m > n:
+        return -1
+    
+    hash_pattern = 0
+    hash_window = 0
+    for i in range(m):
+        hash_pattern = (hash_pattern * base + ord(pattern[i])) % mod
+        hash_window = (hash_window * base + ord(text[i])) % mod
+        
+    for i in range(n - m + 1):
+        if hash_pattern == hash_window:
+            if text[i:i+m] == pattern:
+                return i
+        
+        if i < n - m:
+            hash_window = (hash_window - ord(text[i]) * pow(base,m-1, mod)) % mod
+            hash_window = (hash_window * base + ord(text[i+m])) % mod
+            hash_window = (hash_window + mod) % mod
+    
+    return -1

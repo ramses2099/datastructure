@@ -8,3 +8,13 @@ def test_maxSumFirstKElement():
     
     res = maxSumFirstKElement(arr, K)
     assert res == output_sum
+    
+    
+def test_rolling_hash():
+    text = "abracadabra"
+    pattern = "cada"
+    output = 4
+    
+    index = rolling_hash_search(text, pattern)
+    
+    assert index == output
