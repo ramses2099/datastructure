@@ -5,27 +5,25 @@ from functions import largest_and_second_largest, twoSum
 
 def main():
     os.system("cls")
-    arr = [2,7,11,15]
-    target = 9
-    output = tuple([1,2])
+    arr = [1,7,6,10,23,3,1,0,20]
+    K = 4
+    output = list([7,6,10,23])
+    output_sum = 46
+    n = len(arr)
     
-    res = twoSum(arr, target)
-    assert res == output, "Incorrect output"
-    print(f"result : {res}")
+    res = 0
     
-    # start = 0
-    # end = len(arr) - 1
-    # print(f"result : {end}")
+    for i in range(K):
+        res += arr[i]
+        
+    print(f"The sum of the first {K} elements is: {res}")
     
-    # while arr[start] + arr[end] != target:
-    #     if arr[start] + arr[end] < target:
-    #         start += 1
-    #     elif arr[start] + arr[end] > target:
-    #         end -= 1
-    
-    # print(f"sum : {arr[start] + arr[end]} index 1: {start+1} index 2: {end+1}")
-    
-    
+    curr_sum = res
+    for i in range(K,n):
+        curr_sum += arr[i] - arr[i-K]
+        res = max(res, curr_sum)
+     
+    print(f"res = {res}")
    
 if __name__ == "__main__":
     main()
